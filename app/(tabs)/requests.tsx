@@ -1,12 +1,6 @@
-import { Placeholder } from "@/src/components/ui/Placeholder";
+import { MyRequestsScreen } from "@/src/features/requests/screens/MyRequestsScreen";
 
 export default function RequestsTab() {
-  return (
-    <Placeholder
-      title="My Requests"
-      subtitle="Placeholder — Phase 16."
-      links={[{ label: "Worker profile", href: "/worker/w1" }]}
-    />
-  );
+  return <MyRequestsScreen />;
 }
 

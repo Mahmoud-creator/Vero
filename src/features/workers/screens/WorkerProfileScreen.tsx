@@ -3,7 +3,7 @@ import { useLocalSearchParams, useRouter } from "expo-router";
 import { Fragment } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Avatar, Badge, Button, Card, EmptyState, Rating } from "@/src/components/ui";
+import { Avatar, Badge, Button, Card, EmptyState, IconButton, Rating } from "@/src/components/ui";
 import { colors, radius, shadows, spacing, typography } from "@/src/constants/theme";
 import { getWorkerById } from "@/src/mocks";
 import { Review, Service } from "@/src/types";
@@ -24,8 +24,8 @@ export function WorkerProfileScreen() {
   return (
     <SafeAreaView style={styles.safe} edges={["top"]}>
       <View style={styles.topBar}>
-        <IconBtn name="arrow-back" onPress={() => router.back()} />
-        <IconBtn name="heart-outline" />
+        <IconButton name="arrow-back" onPress={() => router.back()} />
+        <IconButton name="heart-outline" />
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.content}>
@@ -106,20 +106,6 @@ export function WorkerProfileScreen() {
   );
 }
 
-function IconBtn({ name, onPress }: { name: keyof typeof Ionicons.glyphMap; onPress?: () => void }) {
-  return (
-    <Ionicons.Button
-      name={name}
-      backgroundColor={colors.surface}
-      color={colors.text}
-      size={20}
-      iconStyle={{ marginRight: 0 }}
-      style={styles.iconBtn}
-      onPress={onPress}
-      underlayColor={colors.surfaceAlt}
-    />
-  );
-}
 
 function Stat({ value, label }: { value: string; label: string }) {
   return (
@@ -178,15 +164,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingHorizontal: spacing.lg,
     paddingTop: spacing.sm,
-  },
-  iconBtn: {
-    width: 40,
-    height: 40,
-    borderRadius: radius.md,
-    borderWidth: 1,
-    borderColor: colors.border,
-    justifyContent: "center",
-    paddingHorizontal: 0,
   },
   content: { paddingBottom: 120 },
   identity: { alignItems: "center", gap: spacing.xs, paddingHorizontal: spacing.lg, paddingTop: spacing.md },

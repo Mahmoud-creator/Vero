@@ -3,7 +3,7 @@ import { useRouter } from "expo-router";
 import { useState } from "react";
 import { KeyboardAvoidingView, Platform, Pressable, StyleSheet, Text, View } from "react-native";
 import { Button, ScreenContainer, TextField } from "@/src/components/ui";
-import { colors, radius, spacing, typography } from "@/src/constants/theme";
+import { colors, spacing, typography } from "@/src/constants/theme";
 import { validateEmail, validatePassword } from "@/src/utils/validation";
 
 export function LoginScreen() {

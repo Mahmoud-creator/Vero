@@ -1,9 +1,8 @@
-import { Ionicons } from "@expo/vector-icons";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { useState } from "react";
 import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { EmptyState } from "@/src/components/ui";
+import { EmptyState, IconButton } from "@/src/components/ui";
 import { colors, radius, spacing, typography } from "@/src/constants/theme";
 import { WorkerCard } from "@/src/features/workers/components/WorkerCard";
 import { getCategoryById, getWorkersByCategory } from "@/src/mocks";
@@ -27,16 +26,12 @@ export function CategoryResultsScreen() {
   return (
     <SafeAreaView style={styles.safe} edges={["top"]}>
       <View style={styles.header}>
-        <Pressable onPress={() => router.back()} hitSlop={8} style={styles.backBtn}>
-          <Ionicons name="arrow-back" size={22} color={colors.text} />
-        </Pressable>
+        <IconButton name="arrow-back" onPress={() => router.back()} />
         <View style={styles.headerText}>
           <Text style={styles.title}>{category?.name ?? "Results"}</Text>
           <Text style={styles.count}>{workers.length} pros available</Text>
         </View>
-        <Pressable hitSlop={8} style={styles.backBtn}>
-          <Ionicons name="search" size={22} color={colors.text} />
-        </Pressable>
+        <IconButton name="search" />
       </View>
 
       <View style={styles.sorts}>
@@ -83,16 +78,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.lg,
     paddingTop: spacing.sm,
     paddingBottom: spacing.md,
-  },
-  backBtn: {
-    width: 40,
-    height: 40,
-    borderRadius: radius.md,
-    backgroundColor: colors.surface,
-    borderWidth: 1,
-    borderColor: colors.border,
-    alignItems: "center",
-    justifyContent: "center",
   },
   headerText: { flex: 1 },
   title: { ...typography.h2, fontSize: 20 },

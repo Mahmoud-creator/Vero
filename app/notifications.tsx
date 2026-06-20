@@ -1,8 +1,6 @@
-import { Placeholder } from "@/src/components/ui/Placeholder";
+import { NotificationsScreen } from "@/src/features/notifications/screens/NotificationsScreen";
 
 export default function Notifications() {
-  return (
-    <Placeholder title="Notifications" subtitle="Placeholder — Phase 17." showBack />
-  );
+  return <NotificationsScreen />;
 }
 
