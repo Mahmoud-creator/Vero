@@ -1,8 +1,9 @@
 import { Ionicons } from "@expo/vector-icons";
 import DateTimePicker, { DateTimePickerEvent } from "@react-native-community/datetimepicker";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { useRef, useState } from "react";
-import { KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { useState } from "react";
+import { Platform, Pressable, StyleSheet, Text, View } from "react-native";
+import { KeyboardAwareScrollView, KeyboardStickyView } from "react-native-keyboard-controller";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Avatar, Button, TextField } from "@/src/components/ui";
 import { colors, radius, spacing, typography } from "@/src/constants/theme";
@@ -18,7 +19,6 @@ export function RequestServiceScreen() {
   const { workerId } = useLocalSearchParams<{ workerId: string }>();
   const router = useRouter();
   const worker = getWorkerById(workerId ?? "");
-  const scrollRef = useRef<ScrollView>(null);
 
   const [serviceId, setServiceId] = useState(worker?.services[0]?.id ?? "");
   const [date, setDate] = useState<Date | null>(null);
@@ -56,13 +56,13 @@ export function RequestServiceScreen() {
         </Pressable>
       </View>
 
-      <KeyboardAvoidingView style={styles.flex} behavior={Platform.OS === "ios" ? "padding" : undefined}>
-        <ScrollView
-          ref={scrollRef}
-          showsVerticalScrollIndicator={false}
-          contentContainerStyle={styles.content}
-          keyboardShouldPersistTaps="handled"
-        >
+      <KeyboardAwareScrollView
+        style={styles.flex}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.content}
+        keyboardShouldPersistTaps="handled"
+        bottomOffset={spacing.xl}
+      >
           {worker && (
             <View style={styles.workerRow}>
               <Avatar uri={worker.avatar} name={worker.name} size="md" />
@@ -136,16 +136,16 @@ export function RequestServiceScreen() {
             error={errors.description}
             multiline
             textAlignVertical="top"
-            onFocus={() => setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 250)}
             containerStyle={styles.field}
             style={styles.textarea}
           />
-        </ScrollView>
+        </KeyboardAwareScrollView>
 
-        <View style={styles.footer}>
-          <Button label="Send request" fullWidth onPress={handleSubmit} />
-        </View>
-      </KeyboardAvoidingView>
+        <KeyboardStickyView>
+          <View style={styles.footer}>
+            <Button label="Send request" fullWidth onPress={handleSubmit} />
+          </View>
+        </KeyboardStickyView>
     </SafeAreaView>
   );
 }

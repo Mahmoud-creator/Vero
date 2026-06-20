@@ -3,7 +3,6 @@ import { useLocalSearchParams, useRouter } from "expo-router";
 import { useRef, useState } from "react";
 import {
   FlatList,
-  KeyboardAvoidingView,
   Platform,
   Pressable,
   StyleSheet,
@@ -11,6 +10,7 @@ import {
   TextInput,
   View,
 } from "react-native";
+import { KeyboardAvoidingView } from "react-native-keyboard-controller";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Avatar } from "@/src/components/ui";
 import { colors, radius, spacing, typography } from "@/src/constants/theme";
@@ -63,7 +63,7 @@ export function ChatThreadScreen() {
 
       <KeyboardAvoidingView
         style={styles.flex}
-        behavior={Platform.OS === "ios" ? "padding" : undefined}
+        behavior="padding"
         keyboardVerticalOffset={Platform.OS === "ios" ? 8 : 0}
       >
         <FlatList
@@ -87,6 +87,7 @@ export function ChatThreadScreen() {
             placeholderTextColor={colors.textMuted}
             value={draft}
             onChangeText={setDraft}
+            onFocus={() => setTimeout(() => listRef.current?.scrollToEnd({ animated: true }), 50)}
             multiline
           />
           <Pressable onPress={send} style={[styles.send, !draft.trim() && styles.sendDisabled]}>
