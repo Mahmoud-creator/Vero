@@ -1,0 +1,206 @@
+{
+  "communities": {
+    "0": [
+      "mocks_index",
+      "mocks_messages",
+      "mocks_messages_conversations",
+      "mocks_messages_getmessages",
+      "mocks_messages_messagesbyconversation",
+      "mocks_notifications",
+      "mocks_notifications_notifications",
+      "mocks_requests",
+      "mocks_requests_getrequestsbystatus",
+      "mocks_requests_requests",
+      "types_category",
+      "types_category_iconname",
+      "types_index",
+      "types_message",
+      "types_message_conversation",
+      "types_message_message",
+      "types_notification",
+      "types_notification_appnotification",
+      "types_notification_notificationtype",
+      "types_request",
+      "types_request_requeststatus",
+      "types_request_servicerequest"
+    ],
+    "1": [
+      "constants_theme_spacing",
+      "screens_splashscreen",
+      "screens_splashscreen_splashscreen",
+      "screens_splashscreen_stats",
+      "screens_splashscreen_styles",
+      "ui_button_button",
+      "ui_index",
+      "ui_placeholder",
+      "ui_placeholder_navlink",
+      "ui_placeholder_placeholder",
+      "ui_placeholder_placeholderprops",
+      "ui_placeholder_styles",
+      "ui_rating",
+      "ui_rating_rating",
+      "ui_rating_ratingprops",
+      "ui_rating_styles",
+      "ui_screencontainer",
+      "ui_screencontainer_screencontainer",
+      "ui_screencontainer_screencontainerprops",
+      "ui_screencontainer_styles"
+    ],
+    "2": [
+      "constants_theme",
+      "constants_theme_colors",
+      "constants_theme_colortoken",
+      "constants_theme_fontsize",
+      "constants_theme_radius",
+      "constants_theme_shadows",
+      "constants_theme_theme",
+      "mocks_categories",
+      "mocks_categories_categories",
+      "mocks_categories_getcategorybyid",
+      "types_category_category",
+      "ui_card",
+      "ui_card_card",
+      "ui_card_cardprops",
+      "ui_card_styles",
+      "ui_textfield",
+      "ui_textfield_styles",
+      "ui_textfield_textfieldprops"
+    ],
+    "3": [
+      "mocks_workers",
+      "mocks_workers_featuredworkers",
+      "mocks_workers_getworkerbyid",
+      "mocks_workers_getworkersbycategory",
+      "mocks_workers_workers",
+      "types_worker",
+      "types_worker_review",
+      "types_worker_service",
+      "types_worker_worker"
+    ],
+    "4": [
+      "ui_button",
+      "ui_button_buttonprops",
+      "ui_button_labelcolor",
+      "ui_button_labelsize",
+      "ui_button_size",
+      "ui_button_sizestyles",
+      "ui_button_styles",
+      "ui_button_variant",
+      "ui_button_variantstyles"
+    ],
+    "5": [
+      "screens_loginscreen",
+      "screens_loginscreen_loginscreen",
+      "screens_loginscreen_styles",
+      "ui_textfield_textfield",
+      "utils_validation",
+      "utils_validation_validateemail",
+      "utils_validation_validatepassword",
+      "utils_validation_validaterequired"
+    ],
+    "6": [
+      "ui_avatar",
+      "ui_avatar_avatar",
+      "ui_avatar_avatarprops",
+      "ui_avatar_dimensions",
+      "ui_avatar_initials",
+      "ui_avatar_size",
+      "ui_avatar_styles"
+    ],
+    "7": [
+      "ui_badge",
+      "ui_badge_badge",
+      "ui_badge_badgeprops",
+      "ui_badge_styles",
+      "ui_badge_tone",
+      "ui_badge_tonestyles"
+    ],
+    "8": [
+      "screens_onboardingscreen",
+      "screens_onboardingscreen_onboardingscreen",
+      "screens_onboardingscreen_slide",
+      "screens_onboardingscreen_slides",
+      "screens_onboardingscreen_styles"
+    ]
+  },
+  "cohesion": {
+    "0": 0.12987012987012986,
+    "1": 0.14210526315789473,
+    "2": 0.1503267973856209,
+    "3": 0.2222222222222222,
+    "4": 0.2222222222222222,
+    "5": 0.32142857142857145,
+    "6": 0.3333333333333333,
+    "7": 0.3333333333333333,
+    "8": 0.4
+  },
+  "gods": [
+    {
+      "id": "constants_theme_colors",
+      "label": "colors",
+      "degree": 13
+    },
+    {
+      "id": "constants_theme_spacing",
+      "label": "spacing",
+      "degree": 11
+    },
+    {
+      "id": "constants_theme_radius",
+      "label": "radius",
+      "degree": 9
+    },
+    {
+      "id": "ui_button_button",
+      "label": "Button()",
+      "degree": 6
+    },
+    {
+      "id": "ui_screencontainer_screencontainer",
+      "label": "ScreenContainer()",
+      "degree": 4
+    },
+    {
+      "id": "ui_avatar_avatar",
+      "label": "Avatar()",
+      "degree": 3
+    },
+    {
+      "id": "ui_textfield_textfield",
+      "label": "TextField()",
+      "degree": 3
+    },
+    {
+      "id": "types_category_iconname",
+      "label": "IconName",
+      "degree": 3
+    },
+    {
+      "id": "types_notification_appnotification",
+      "label": "AppNotification",
+      "degree": 3
+    },
+    {
+      "id": "ui_avatar_initials",
+      "label": "initials()",
+      "degree": 2
+    }
+  ],
+  "surprises": [
+    {
+      "source": "AppNotification",
+      "target": "IconName",
+      "source_files": [
+        "types/notification.ts",
+        "types/category.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "cross-file semantic connection"
+    }
+  ],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "communities": {
+    "0": [
+      "category_id",
+      "category_id_categoryresults"
+    ],
+    "1": [
+      "chat_id",
+      "chat_id_chatthread"
+    ],
+    "2": [
+      "index",
+      "index_index"
+    ],
+    "3": [
+      "layout",
+      "layout_rootlayout"
+    ],
+    "4": [
+      "login",
+      "login_login"
+    ],
+    "5": [
+      "notifications",
+      "notifications_notifications"
+    ],
+    "6": [
+      "onboarding",
+      "onboarding_onboarding"
+    ],
+    "7": [
+      "register",
+      "register_register"
+    ],
+    "8": [
+      "request_service",
+      "request_service_requestservice"
+    ],
+    "9": [
+      "tabs_chat",
+      "tabs_chat_chattab"
+    ],
+    "10": [
+      "tabs_home",
+      "tabs_home_hometab"
+    ],
+    "11": [
+      "tabs_layout",
+      "tabs_layout_tabslayout"
+    ],
+    "12": [
+      "tabs_profile",
+      "tabs_profile_profiletab"
+    ],
+    "13": [
+      "tabs_requests",
+      "tabs_requests_requeststab"
+    ],
+    "14": [
+      "worker_id",
+      "worker_id_workerprofile"
+    ]
+  },
+  "cohesion": {
+    "0": 1.0,
+    "1": 1.0,
+    "2": 1.0,
+    "3": 1.0,
+    "4": 1.0,
+    "5": 1.0,
+    "6": 1.0,
+    "7": 1.0,
+    "8": 1.0,
+    "9": 1.0,
+    "10": 1.0,
+    "11": 1.0,
+    "12": 1.0,
+    "13": 1.0,
+    "14": 1.0
+  },
+  "gods": [],
+  "surprises": [],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}

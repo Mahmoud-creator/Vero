@@ -1,16 +1,6 @@
-import { Placeholder } from "@/src/components/ui/Placeholder";
+import { LoginScreen } from "@/src/features/auth/screens/LoginScreen";
 
 export default function Login() {
-  return (
-    <Placeholder
-      title="Login"
-      subtitle="Placeholder — Phase 9."
-      links={[
-        { label: "Sign in (enter app)", href: "/(tabs)/home" },
-        { label: "Create account", href: "/register" },
-      ]}
-      showBack
-    />
-  );
+  return <LoginScreen />;
 }
 

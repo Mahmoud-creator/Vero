@@ -1,13 +1,6 @@
-import { Placeholder } from "@/src/components/ui/Placeholder";
+import { OnboardingScreen } from "@/src/features/auth/screens/OnboardingScreen";
 
 export default function Onboarding() {
-  return (
-    <Placeholder
-      title="Onboarding"
-      subtitle="Placeholder — Phase 8."
-      links={[{ label: "Continue to Login", href: "/login" }]}
-      showBack
-    />
-  );
+  return <OnboardingScreen />;
 }
 
