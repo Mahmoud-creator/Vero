@@ -25,6 +25,10 @@ export function TextField({
   icon,
   secure = false,
   containerStyle,
+  multiline,
+  onFocus,
+  onBlur,
+  style,
   ...rest
 }: TextFieldProps) {
   const [focused, setFocused] = useState(false);
@@ -36,6 +40,7 @@ export function TextField({
       <View
         style={[
           styles.field,
+          multiline && styles.fieldMultiline,
           focused && styles.fieldFocused,
           !!error && styles.fieldError,
         ]}
@@ -48,11 +53,18 @@ export function TextField({
           />
         )}
         <TextInput
-          style={styles.input}
+          style={[styles.input, multiline && styles.inputMultiline, style]}
           placeholderTextColor={colors.textMuted}
           secureTextEntry={hidden}
-          onFocus={() => setFocused(true)}
-          onBlur={() => setFocused(false)}
+          multiline={multiline}
+          onFocus={(e) => {
+            setFocused(true);
+            onFocus?.(e);
+          }}
+          onBlur={(e) => {
+            setFocused(false);
+            onBlur?.(e);
+          }}
           {...rest}
         />
         {secure && (
@@ -86,7 +98,9 @@ const styles = StyleSheet.create({
   },
   fieldFocused: { borderColor: colors.primary },
   fieldError: { borderColor: colors.danger },
+  fieldMultiline: { height: undefined, minHeight: 120, alignItems: "flex-start", paddingVertical: spacing.md },
   input: { flex: 1, ...typography.body, paddingVertical: 0 },
+  inputMultiline: { height: "100%", textAlignVertical: "top" },
   error: { ...typography.caption, color: colors.danger },
 });
 
